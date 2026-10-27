@@ -1,6 +1,6 @@
 # SHVL for n8n
 
-Pre-release source candidate. Production OAuth, workspace discovery, credit-control brief and receivables health passed in n8n 2.45.4 using isolated fictional data. A nonexistent workspace was rejected. AI-agent tool execution remains unverified. This package has not yet been published to npm or verified by n8n.
+Production OAuth, workspace discovery, credit-control brief and receivables health passed in n8n 2.45.4 using isolated fictional data. A nonexistent workspace was rejected. AI-agent tool execution remains unverified. Published on npm. Verification by n8n is pending; this is not a verified community node.
 
 Read SHVL's credit-control brief and receivables health in an n8n workflow. SHVL helps UK businesses review overdue invoices alongside their accounting ledger.
 
@@ -34,4 +34,4 @@ The fictional production QA returned three invoices totalling £1,000, with agei
 
 ## Development
 
-Run `npm ci --ignore-scripts`, `npm run build`, `npm run lint` and `npm test`. Local contract tests are not proof of a live OAuth grant or n8n Cloud acceptance. The source is public, but no npm package or n8n verification has been published. The official development toolchain has 23 audit findings (19 high, 4 moderate); none are runtime dependencies. Review upstream fixes before building with untrusted inputs.
+Run `npm ci --ignore-scripts`, `npm run build`, `npm run lint` and `npm test`. Local contract tests are not proof of a live OAuth grant or n8n Cloud acceptance. The package is published on npm from GitHub Actions with provenance. It is not yet verified by n8n. The official development toolchain has 23 audit findings (19 high, 4 moderate); none are runtime dependencies. Review upstream fixes before building with untrusted inputs.
