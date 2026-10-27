@@ -1,6 +1,6 @@
 # SHVL for n8n
 
-Pre-release source candidate. Production OAuth, installation in a real n8n instance and AI-tool execution have not been verified. Do not use with customer data yet.
+Pre-release source candidate. Production OAuth and workspace discovery passed in n8n 2.45.4 using a verified fictional reviewer identity. Credit-control brief, receivables health and AI-tool execution have not been verified. Do not use with customer data yet.
 
 Read SHVL's credit-control brief and receivables health in an n8n workflow. SHVL helps UK businesses review overdue invoices alongside their accounting ledger.
 
@@ -28,4 +28,4 @@ See [SHVL documentation](https://shvl.app/cli) and [data handling](https://shvl.
 
 ## Development
 
-Run `npm ci --ignore-scripts`, `npm run build`, `npm run lint` and `npm test`. Local contract tests are not proof of a live OAuth grant or n8n Cloud acceptance. This package is a local release candidate until its public version and verification are recorded.
+Run `npm ci --ignore-scripts`, `npm run build`, `npm run lint` and `npm test`. Local contract tests are not proof of a live OAuth grant or n8n Cloud acceptance. The source is public, but no npm package or n8n verification has been published. The official development toolchain has 23 audit findings (19 high, 4 moderate); none are runtime dependencies. Review upstream fixes before building with untrusted inputs.
