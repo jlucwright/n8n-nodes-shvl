@@ -24,3 +24,16 @@ test('MCP denied/error and malformed response stop workflow rather than returnin
 test('OAuth uses PKCE identity scopes and no client secret', () => {
  const p=Object.fromEntries(new ShvlOAuth2Api().properties.map(x=>[x.name,x.default]));assert.equal(p.grantType,'pkce');assert.equal(p.scope,'openid profile email');assert.equal(p.clientSecret,'');assert.equal(p.accessTokenUrl,'https://aywqulzuzeblmfwstldr.supabase.co/auth/v1/oauth/token');
 });
+
+test('shipped examples require an explicit workspace and contain no saved credentials', () => {
+ const fs = require('node:fs'); const path = require('node:path');
+ for (const file of fs.readdirSync(path.join(__dirname, '../examples')).filter(f => f.endsWith('.json'))) {
+  const workflow = JSON.parse(fs.readFileSync(path.join(__dirname, '../examples', file), 'utf8'));
+  assert.equal(workflow.active, false);
+  for (const node of workflow.nodes) {
+   assert.equal(node.credentials, undefined);
+   assert.ok(['n8n-nodes-base.manualTrigger', 'n8n-nodes-shvl.shvl'].includes(node.type));
+   if (node.type === 'n8n-nodes-shvl.shvl' && node.parameters.operation !== 'workspaces') assert.equal(node.parameters.workspaceId, 'YOUR_WORKSPACE_ID');
+  }
+ }
+});

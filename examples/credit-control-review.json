@@ -1,0 +1,72 @@
+{
+  "name": "SHVL credit-control brief and health (manual, read-only)",
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "name": "Run manually",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "brief",
+      "name": "Get credit-control brief",
+      "type": "n8n-nodes-shvl.shvl",
+      "typeVersion": 1,
+      "position": [
+        250,
+        0
+      ],
+      "parameters": {
+        "operation": "brief",
+        "workspaceId": "YOUR_WORKSPACE_ID"
+      }
+    },
+    {
+      "id": "health",
+      "name": "Get receivables health",
+      "type": "n8n-nodes-shvl.shvl",
+      "typeVersion": 1,
+      "position": [
+        500,
+        0
+      ],
+      "parameters": {
+        "operation": "health",
+        "workspaceId": "YOUR_WORKSPACE_ID"
+      }
+    }
+  ],
+  "connections": {
+    "Run manually": {
+      "main": [
+        [
+          {
+            "node": "Get credit-control brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get credit-control brief": {
+      "main": [
+        [
+          {
+            "node": "Get receivables health",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

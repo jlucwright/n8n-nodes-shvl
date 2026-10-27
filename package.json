@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-shvl",
-  "version": "0.1.0-preview.0",
+  "version": "0.1.0",
   "description": "Read SHVL credit-control briefs and receivables health in n8n.",
   "license": "MIT",
   "homepage": "https://shvl.app/cli",

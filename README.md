@@ -1,6 +1,6 @@
 # SHVL for n8n
 
-Pre-release source candidate. Production OAuth and workspace discovery passed in n8n 2.45.4 using a verified fictional reviewer identity. Credit-control brief, receivables health and AI-tool execution have not been verified. Do not use with customer data yet.
+Pre-release source candidate. Production OAuth, workspace discovery, credit-control brief and receivables health passed in n8n 2.45.4 using isolated fictional data. A nonexistent workspace was rejected. AI-agent tool execution remains unverified. This package has not yet been published to npm or verified by n8n.
 
 Read SHVL's credit-control brief and receivables health in an n8n workflow. SHVL helps UK businesses review overdue invoices alongside their accounting ledger.
 
@@ -25,6 +25,12 @@ The output keeps SHVL's complete structured response, including source freshness
 Authentication, workspace, source-review and rate-limit errors stop execution. Connecting or running this node does not send email. Any downstream disclosure, AI use or messaging needs the workspace owner's permission.
 
 See [SHVL documentation](https://shvl.app/cli) and [data handling](https://shvl.app/data-handling).
+
+## Example workflows
+
+Import `examples/workspace-review.json` to discover the workspaces your account can access. Then import `examples/credit-control-review.json`, replace `YOUR_WORKSPACE_ID` in both SHVL nodes with the same explicitly selected ID, and select your credential in both nodes. Execute manually. These examples do not send reminders, write records or call an AI model. Both data operations preserve the complete structured response and its provenance.
+
+The fictional production QA returned three invoices totalling £1,000, with ageing buckets £100, £250 and £650. These are synthetic test values, not customer outcomes. The dedicated test grant was revoked after QA.
 
 ## Development
 
