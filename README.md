@@ -10,7 +10,7 @@ Read SHVL's credit-control brief and receivables health in an n8n workflow. SHVL
 - **Get Credit-Control Brief** returns overdue totals and up to five priority cases for one selected workspace.
 - **Get Receivables Health** returns receivables ageing, concentration and available trend data. It is not a bank-balance, cash-flow or profit report.
 
-The node uses SHVL's restricted read-only connector. It cannot send reminders, change case records, post to accounting or access internal founder accounts.
+The node uses typed REST `GET` resources beneath SHVL's existing `/mcp/agent/v1` OAuth resource. The PKCE client, resource indicator and identity scopes are unchanged. SHVL applies the same restricted connector, workspace membership, entitlement, source and rate-limit checks. It cannot send reminders, change case records, post to accounting or access internal founder accounts.
 
 ## Connect
 

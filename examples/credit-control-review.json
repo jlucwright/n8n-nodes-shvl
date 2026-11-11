@@ -26,7 +26,8 @@
         0
       ],
       "parameters": {
-        "operation": "brief",
+        "resource": "creditControl",
+        "operation": "getBrief",
         "workspaceId": "YOUR_WORKSPACE_ID"
       }
     },
@@ -40,7 +41,8 @@
         0
       ],
       "parameters": {
-        "operation": "health",
+        "resource": "receivables",
+        "operation": "getHealth",
         "workspaceId": "YOUR_WORKSPACE_ID"
       }
     }
