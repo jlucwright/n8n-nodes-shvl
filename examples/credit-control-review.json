@@ -20,7 +20,7 @@
       "id": "brief",
       "name": "Get credit-control brief",
       "type": "n8n-nodes-shvl.shvl",
-      "typeVersion": 1,
+      "typeVersion": 2,
       "position": [
         250,
         0
@@ -35,7 +35,7 @@
       "id": "health",
       "name": "Get receivables health",
       "type": "n8n-nodes-shvl.shvl",
-      "typeVersion": 1,
+      "typeVersion": 2,
       "position": [
         500,
         0

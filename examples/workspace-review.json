@@ -16,7 +16,7 @@
       "id": "workspaces",
       "name": "Get workspaces",
       "type": "n8n-nodes-shvl.shvl",
-      "typeVersion": 1,
+      "typeVersion": 2,
       "position": [
         240,
         0

@@ -1,6 +1,6 @@
 # SHVL for n8n
 
-Production OAuth, workspace discovery, credit-control brief and receivables health passed in n8n 2.45.4 using isolated fictional data. A nonexistent workspace was rejected. AI-agent tool execution remains unverified. Published on npm. Verification by n8n is pending; this is not a verified community node.
+Published npm version 0.1.1 was tested in n8n 2.45.4 with isolated fictional data over the original MCP `tools/call` transport. That historical QA covered OAuth, workspace discovery, the credit-control brief, receivables health and rejection of a nonexistent workspace; AI-agent tool execution was not verified. The current source changes the node to typed REST reads and preserves version 1 saved workflows through n8n's versioned-node support. This REST candidate has not completed hosted OAuth QA or been published. Verification by n8n is pending; the package is not a verified community node.
 
 Read SHVL's credit-control brief and receivables health in an n8n workflow. SHVL helps UK businesses review overdue invoices alongside their accounting ledger.
 
@@ -34,4 +34,4 @@ The fictional production QA returned three invoices totalling £1,000, with agei
 
 ## Development
 
-Run `npm ci --ignore-scripts`, `npm run build`, `npm run lint` and `npm test`. Local contract tests are not proof of a live OAuth grant or n8n Cloud acceptance. The package is published on npm from GitHub Actions with provenance. It is not yet verified by n8n. The official development toolchain has 23 audit findings (19 high, 4 moderate); none are runtime dependencies. Review upstream fixes before building with untrusted inputs.
+Run `npm ci --ignore-scripts`, `npm run build`, `npm run lint` and `npm test`. Local contract tests are not proof of a live OAuth grant or n8n Cloud acceptance. The published package was released by GitHub Actions with provenance. It is not yet verified by n8n. The 27 October 2026 audit recorded 23 findings (19 high, 4 moderate). A later 11 November 2026 report recorded 37 findings in the development dependency tree; these counts concern development tooling and transitive packages, not runtime dependencies. Audit counts can change as advisories are updated. Review upstream fixes before building with untrusted inputs.
