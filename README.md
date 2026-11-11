@@ -10,7 +10,23 @@ Read SHVL's credit-control brief and receivables health in an n8n workflow. SHVL
 - **Get Credit-Control Brief** returns overdue totals and up to five priority cases for one selected workspace.
 - **Get Receivables Health** returns receivables ageing, concentration and available trend data. It is not a bank-balance, cash-flow or profit report.
 
-The node uses typed REST `GET` resources beneath SHVL's existing `/mcp/agent/v1` OAuth resource. The PKCE client, resource indicator and identity scopes are unchanged. SHVL applies the same restricted connector, workspace membership, entitlement, source and rate-limit checks. It cannot send reminders, change case records, post to accounting or access internal founder accounts.
+The unpublished candidate uses typed REST `GET` resources beneath SHVL's existing `/mcp/agent/v1` OAuth resource. The PKCE client, resource indicator and identity scopes are unchanged. SHVL applies the same restricted connector, workspace membership, entitlement, source and rate-limit checks. It cannot send reminders, change case records, post to accounting or access internal founder accounts.
+
+## REST API reference (unpublished candidate)
+
+These routes describe the current source candidate. They are not available until the REST release completes hosted OAuth checks and release review.
+
+Use the existing OAuth resource `https://shvl.app/mcp/agent/v1` with a bearer access token and the identity scopes `openid profile email`. Requests are bodyless `GET`s. The scope values identify the user; SHVL separately checks connector access, workspace membership, entitlement, data source and rate limits.
+
+| Route | Result |
+| --- | --- |
+| `GET /mcp/agent/v1/workspaces` | Accessible workspaces and their access and accounting-source status. |
+| `GET /mcp/agent/v1/workspaces/{workspace_id}/credit-control/brief` | Credit-control summary and priority cases for the explicitly selected workspace. |
+| `GET /mcp/agent/v1/workspaces/{workspace_id}/receivables/health` | Receivables balances, ageing, concentration and available trend data for the selected workspace. |
+
+The brief accepts an optional `limit` query parameter from `1` to `5`; when omitted, it returns up to five priority cases. Select a workspace from the first route and pass its exact ID. The routes return the complete structured JSON result and do not perform business writes.
+
+An unauthenticated request returns HTTP `401` with the OAuth challenge in `WWW-Authenticate` and the envelope `{ "error": "authentication_required" }`. Other REST errors use `{ "error": { "code": "…", "message": "…", "retryable": false } }`; `retryable` is true for rate-limit and temporary-service errors. Typical statuses are `400` for malformed input, `403` for inaccessible workspaces or inactive entitlement, `422` when source review is required, `429` for rate limiting and `503` for a temporary service failure. Unsupported paths return `404`; other HTTP methods return `405`.
 
 ## Connect
 
@@ -30,7 +46,7 @@ See [SHVL documentation](https://shvl.app/cli) and [data handling](https://shvl.
 
 Import `examples/workspace-review.json` to discover the workspaces your account can access. Then import `examples/credit-control-review.json`, replace `YOUR_WORKSPACE_ID` in both SHVL nodes with the same explicitly selected ID, and select your credential in both nodes. Execute manually. These examples do not send reminders, write records or call an AI model. Both data operations preserve the complete structured response and its provenance.
 
-The fictional production QA returned three invoices totalling £1,000, with ageing buckets £100, £250 and £650. These are synthetic test values, not customer outcomes. The dedicated test grant was revoked after QA.
+The historical MCP QA of published version 0.1.1 returned three fictional invoices totalling £1,000, with ageing buckets £100, £250 and £650. Those synthetic values are not customer outcomes. The dedicated test grant was revoked after that QA; the unpublished REST candidate has not had hosted OAuth QA.
 
 ## Development
 
